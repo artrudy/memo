@@ -1,0 +1,84 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  font-size: calc(1rem+0.5vw);
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button {
+  font-size: inherit;
+  font-family: inherit;
+  background-color: #008080;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #006666;
+}
+
+#mainMenu {
+  height: 100vh;
+  background: linear-gradient(to right, #336699, #66cc99);
+  /* or your preferred gradient */
+}
+
+main {
+  height: 100vh;
+  background-color: #ffcc99;
+  /* or another complementary color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 2;
+  gap: 1rem;
+  margin-inline: auto;
+}
+
+#cardToMemo {
+  width: 25vw;
+  height: 70vh;
+  background: teal;
+  color: wheat;
+  font-weight: 500;
+  font-size: 2rem;
+  border-radius: 15px;
+  aspect-ratio: 3/4;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+#buttongroup {
+  max-width: 20vw;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: r;
+  justify-content: space-around;
+  gap: 5rem;
+}
