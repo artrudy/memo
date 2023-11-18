@@ -1,4 +1,3 @@
-"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -11,14 +10,10 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 var _a;
-exports.__esModule = true;
-exports.createNewCard = void 0;
 (_a = document.querySelector("#returnToMenuBtn")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {
     console.log("+");
     window.location.href = "index.html";
 });
-var cardsCollection = [];
 function createNewCard(card) {
     cardsCollection.push(__assign(__assign({}, card), { id: cardsCollection.length, feedback: 0 }));
 }
-exports.createNewCard = createNewCard;

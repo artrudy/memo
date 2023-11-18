@@ -40,11 +40,8 @@ button:hover {
 
 #mainMenu {
   height: 100vh;
-  background: linear-gradient(
-    to right,
-    #336699,
-    #66cc99
-  ); /* or your preferred gradient */
+  background: linear-gradient(to right, #336699, #66cc99);
+  display: grid;
 }
 
 main {
@@ -76,13 +73,11 @@ main {
   justify-content: center;
 }
 
-// #mainMenu {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: flex-start;
-//   justify-content: center;
-//   gap: 5rem;
-// }
+#mainMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #buttongroup {
   max-width: 20vw;
   margin-top: 5rem;
@@ -91,4 +86,32 @@ main {
   align-items: r;
   justify-content: space-around;
   gap: 5rem;
+}
+input {
+  width: 25em;
+  height: 5em;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+#newCardFormHeaderId {
+  height: 65vh;
+  // background: teal;
+  // color: wheat;
+  font-weight: 500;
+  font-size: 4rem;
+  border-radius: 15px;
+  aspect-ratio: 3/4;
+
+  display: grid;
+
+  background-color: #008080;
+  color: #ffffff;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
