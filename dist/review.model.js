@@ -9,4 +9,11 @@ export function createNewCard(card) {
         id: cardsCollection.length,
         feedback: 0,
     });
+    return cardsCollection;
+}
+function displayCard(cardsCollection) {
+    const front = document.querySelector("#front");
+    if (cardsCollection.length > 0) {
+        console.log(cardsCollection[0]);
+    }
 }
