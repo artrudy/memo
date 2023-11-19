@@ -6,28 +6,32 @@
 // [x] when all cards reviewed show done message
 // [x] next card always show front first
 // [ ] feedback after card was flipped
-var _a;
-(_a = document.querySelector("#startPracticingBtn")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {
+import { createNewCard } from "./review.model.js";
+import { cardsCollection } from "./review.model.js";
+document.querySelector("#startPracticingBtn")?.addEventListener("click", () => {
     window.location.href = "review.html";
 });
-var getCardData = document.querySelector("#newCardBtn");
+const getCardData = document.querySelector("#newCardBtn");
 if (getCardData) {
-    getCardData.addEventListener("click", function () {
-        var _a;
-        var newCardFormHeader = document.createElement("div");
+    getCardData.addEventListener("click", () => {
+        const buttongroup = document.querySelector("#buttongroup");
+        if (buttongroup) {
+            buttongroup.style.display = "none";
+        }
+        const newCardFormHeader = document.createElement("div");
         newCardFormHeader.innerText = "New card";
         newCardFormHeader.id = "newCardFormHeaderId";
-        var emptyDiv = document.createElement("div");
-        var newCardForm = document.createElement("form");
+        const emptyDiv = document.createElement("div");
+        const newCardForm = document.createElement("form");
         newCardForm.id = "newForm";
         newCardForm.className = "forms";
-        var fronSideInput = document.createElement("input");
+        const fronSideInput = document.createElement("input");
         fronSideInput.type = "text";
-        fronSideInput.name = "fron side";
+        fronSideInput.name = "frontside";
         fronSideInput.placeholder = "front side of the card";
-        var backSideInput = document.createElement("input");
+        const backSideInput = document.createElement("input");
         backSideInput.type = "text";
-        backSideInput.name = "back side";
+        backSideInput.name = "backside";
         backSideInput.placeholder = "back side of the card";
         newCardFormHeader.appendChild(emptyDiv);
         newCardFormHeader.appendChild(newCardForm);
@@ -36,19 +40,24 @@ if (getCardData) {
         newCardFormHeader.appendChild(emptyDiv);
         newCardForm.appendChild(backSideInput);
         newCardFormHeader.appendChild(emptyDiv);
-        (_a = document.querySelector("#mainMenu")) === null || _a === void 0 ? void 0 : _a.appendChild(newCardFormHeader);
-        var subitNewCardBtn = document.createElement("button");
+        document.querySelector("#mainMenu")?.appendChild(newCardFormHeader);
+        const subitNewCardBtn = document.createElement("button");
         subitNewCardBtn.id = "subitNewCardBtnId";
         subitNewCardBtn.classList.add("buttons");
         subitNewCardBtn.innerText = "Sunbmit new card.";
         newCardFormHeader.appendChild(subitNewCardBtn);
-        subitNewCardBtn.addEventListener("click", function () {
+        subitNewCardBtn.addEventListener("click", () => {
             newCardFormHeader.style.display = "none";
             buttongroup.style.display = "flex";
+            const formData = new FormData(newCardForm);
+            const cardDataFromForm = {
+                id: 0,
+                fronSide: formData.get("frontside"),
+                backSide: formData.get("backside"),
+            };
+            console.log(cardDataFromForm);
+            createNewCard(cardDataFromForm);
+            console.log(cardsCollection);
         });
-        var buttongroup = document.querySelector("#buttongroup");
-        if (buttongroup) {
-            buttongroup.style.display = "none";
-        }
     });
 }

@@ -7,6 +7,11 @@
 // [x] next card always show front first
 // [ ] feedback after card was flipped
 
+import { createNewCard } from "./review.model.js";
+import { Card } from "./review.model.js";
+
+import { cardsCollection } from "./review.model.js";
+
 document.querySelector("#startPracticingBtn")?.addEventListener("click", () => {
   window.location.href = "review.html";
 });
@@ -14,6 +19,11 @@ document.querySelector("#startPracticingBtn")?.addEventListener("click", () => {
 const getCardData = document.querySelector("#newCardBtn") as HTMLElement;
 if (getCardData) {
   getCardData.addEventListener("click", () => {
+    const buttongroup = document.querySelector("#buttongroup") as HTMLElement;
+    if (buttongroup) {
+      buttongroup.style.display = "none";
+    }
+
     const newCardFormHeader = document.createElement("div");
     newCardFormHeader.innerText = "New card";
     newCardFormHeader.id = "newCardFormHeaderId";
@@ -26,12 +36,12 @@ if (getCardData) {
 
     const fronSideInput = document.createElement("input");
     fronSideInput.type = "text";
-    fronSideInput.name = "fron side";
+    fronSideInput.name = "frontside";
     fronSideInput.placeholder = "front side of the card";
 
     const backSideInput = document.createElement("input");
     backSideInput.type = "text";
-    backSideInput.name = "back side";
+    backSideInput.name = "backside";
     backSideInput.placeholder = "back side of the card";
 
     newCardFormHeader.appendChild(emptyDiv);
@@ -55,11 +65,17 @@ if (getCardData) {
     subitNewCardBtn.addEventListener("click", () => {
       newCardFormHeader.style.display = "none";
       buttongroup.style.display = "flex";
-    });
 
-    const buttongroup = document.querySelector("#buttongroup") as HTMLElement;
-    if (buttongroup) {
-      buttongroup.style.display = "none";
-    }
+      const formData = new FormData(newCardForm);
+      const cardDataFromForm: Card = {
+        id: 0,
+        fronSide: formData.get("frontside") as string,
+        backSide: formData.get("backside") as string,
+      };
+      console.log(cardDataFromForm);
+      createNewCard(cardDataFromForm);
+
+      console.log(cardsCollection);
+    });
   });
 }

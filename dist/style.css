@@ -23,9 +23,7 @@ body {
 }
 
 button {
-  max-width: 20em;
-  max-height: 2em;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-family: inherit;
   background-color: #008080;
   color: #ffffff;
